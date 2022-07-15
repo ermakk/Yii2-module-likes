@@ -13,7 +13,7 @@ class m220713_075207_create_likes_table extends Migration
      */
     public function safeUp()
     {
-        $this->createTable('{{%likes}}', [
+        $this->createTable('{{%ermakk_likes}}', [
             'id' => $this->primaryKey(),
             'user_id' => $this->integer()->notNull(),
             'row_id' => $this->integer()->notNull(),
@@ -23,7 +23,7 @@ class m220713_075207_create_likes_table extends Migration
 
         $this->addForeignKey(
             'FK_user_to_likes',
-            '{{%likes}}',
+            '{{%ermakk_likes}}',
             'user_id',
             'user',
             'id'
@@ -35,7 +35,7 @@ class m220713_075207_create_likes_table extends Migration
      */
     public function safeDown()
     {
-        $this->dropForeignKey('FK_user_to_likes', '{{%likes}}');
-        $this->dropTable('{{%likes}}');
+        $this->dropForeignKey('FK_user_to_likes', '{{%ermakk_likes}}');
+        $this->dropTable('{{%ermakk_likes}}');
     }
 }

@@ -41,7 +41,7 @@ class Likes extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%likes}}';
+        return '{{%ermakk_likes}}';
     }
 
     /**

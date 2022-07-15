@@ -1,0 +1,41 @@
+{
+  "name": "ermakk/yii2-module-likes",
+  "description": "Yii2 module to add likes system in your models.",
+  "type": "yii2-extension",
+  "minimum-stability": "stable",
+  "keywords": [
+    "ermakk",
+    "yii2 module",
+    "likes",
+    "votes",
+    "yii",
+    "yii2",
+    "yii 2"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "ermakk",
+      "email": "los-van@mail.ru",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.3",
+    "yiisoft/yii2": "^2.0."
+  },
+  "require-dev": {
+    "phpunit/phpunit": ">=7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "ermakk\\likes\\": "src"
+    }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
+}

@@ -1,24 +1,42 @@
-# yii2-likes
+# yii2-module-likes
+[![Build Status](https://travis-ci.org/ermakk/yii2-module-likes.svg?branch=master)](https://travis-ci.org/ermakk/yii2-module-likes)
+[![Latest Stable Version](https://poser.pugx.org/ermakk/yii2-module-likes/v/stable)](https://packagist.org/packages/ermakk/yii2-module-likes)
+[![Latest Unstable Version](https://poser.pugx.org/ermakk/yii2-module-likes/v/unstable)](https://packagist.org/packages/ermakk/yii2-module-likes)
+[![Total Downloads](https://poser.pugx.org/ermakk/yii2-module-likes/downloads)](https://packagist.org/packages/ermakk/yii2-module-likes)
+[![License](https://poser.pugx.org/ermakk/yii2-module-likes/license)](https://packagist.org/packages/ermakk/yii2-module-likes)
+
 ## Информация о модуле
 
+Простой модуль для добавления системы лайков на записи любых моделей. Модуль не требует дополнительных полей. Он создает одну таблицу в базе и ассоциирует голоса с записями по ID, модели и имени пользователя.
+Повторное нажатие на лайк отменяет его.
+
 Основными компонентами модуля являются:
--  `ermakk\Yii2-module-likes\widgets\LikesButton` - виджет для кнопки лайков;
+
+- `ermakk\Yii2-module-likes\widgets\LikesButton` \- виджет для кнопки лайков;
 
 ## Установка
 
 Устанавливаем модуль:
 
-Далее выполняем миграцию для создания таблицы `likes`
+```bash
+composer require ermakk/yii2-module-likes 
+```
+
+Далее выполняем миграцию для создания таблицы `ermakk_likes`
+
 ```bash
 $ ./yii migrate --migrationPath=@common/modules/ermakk/yii2-module-likes/src/migrations/
 ```
+
 В `@common/config/bootstrap.php` добавить
+
 ```php
     Yii::setAlias('@ermakk/likes', dirname(dirname(__DIR__)) . '/common/modules/ermakk/Yii2-module-likes/src');
 ```
 
 Так как для работы модуля требуются контроллеры, прописываем модуль в конфигурации Yii2 приложения:
-```php  
+
+```php
     ...
     'modules' => [
            'votes' => [
@@ -28,9 +46,11 @@ $ ./yii migrate --migrationPath=@common/modules/ermakk/yii2-module-likes/src/mig
     ...
 ```
 
-
 ## Настройка
-```php  
+
+По умолчанию настройки модуля имеют следующие параметры:
+
+```php
     'pluginOptions' => [
         'buttonClass' => 'like-true btn', //класс для кнопки лайка
         'buttonClassTrueState' => 'btn-outline-secondary', //дополнительный класс для кнопки в отмеченном состоянии
@@ -49,3 +69,5 @@ $ ./yii migrate --migrationPath=@common/modules/ermakk/yii2-module-likes/src/mig
         'afterLike' => '', //js функция выполняемая после добавления лайка
     ];
 ```
+
+Для того чтобы задать свои стили кнопки или виджета, измените эти настройки. Если нужна будет более серьезная доработка \- выносите модуль и изменяйте сам модуль.
